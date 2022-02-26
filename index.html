@@ -55,7 +55,7 @@ async function a(){
     getdata = await responce.json();
     
 
-    document.querySelector(".a>div:nth-child(4)>input").value = getdata[0].price;
+    document.querySelector(".a>div:nth-child(4)>input").value = getdata[getdata.length-1].price;
 
   } catch (err) {
     console.log(err.message);
