@@ -38,15 +38,14 @@
   </body>
 </html>
 <script>
-let amount = JSON.parse(localStorage.getItem("paymentAmount"));
+
 
 a()
-
-let url = `http://3.86.143.97:2349/orders`;
 
 async function a(){
 
   try {
+    let url = `http://3.86.143.97:2349/orders`;
     let responce = await fetch(url, {
       headers: {
         "Content-Type": "application/json"
@@ -54,15 +53,14 @@ async function a(){
     });
 
     getdata = await responce.json();
+    
 
-    document.querySelector(".a>div:nth-child(4)>input").value = getdata.price;
+    document.querySelector(".a>div:nth-child(4)>input").value = getdata[0].price;
 
   } catch (err) {
     console.log(err.message);
   }
 }
-
-
 
 document.querySelector(".a>div:nth-child(4)>input").removeAttribute("disabled");
 
