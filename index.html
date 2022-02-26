@@ -10,7 +10,7 @@
       <div class="col-md-4 offset-md-4">
         <div class="card">
           <div class="card-body">
-            <form class="" action="/paynow" method="post">
+            <form class="a" action="/paynow" method="post">
               <div class="form-group">
                 <label for="">Name: </label>
                 <input class="form-control" type="text" name="name" value="">
@@ -25,7 +25,7 @@
               </div>
                 <div class="form-group">
                 <label for="">Amount: </label>
-                <input class="form-control" type="text" name="amount" value="">
+                <input class="form-control" disabled="" type="text"  name="amount" value="">
               </div>
               <div class="form-group">
                 <button class="btn form-control btn-primary">Pay Now</button>
@@ -37,3 +37,10 @@
     </div>
   </body>
 </html>
+<script>
+  let amount = JSON.parse(localStorage.getItem("paymentAmount"));
+
+
+  document.querySelector(".a>div:nth-child(4)>input").value = amount;
+
+</script>
