@@ -25,7 +25,7 @@
               </div>
                 <div class="form-group">
                 <label for="">Amount: </label>
-                <input class="form-control" type="text"  name="amount" value="">
+                <input class="form-control" disabled="" type="text"  name="amount" value="">
               </div>
               <div class="form-group">
                 <button class="btn form-control btn-primary">Pay Now</button>
@@ -38,9 +38,32 @@
   </body>
 </html>
 <script>
-  let amount = JSON.parse(localStorage.getItem("paymentAmount"));
+let amount = JSON.parse(localStorage.getItem("paymentAmount"));
+
+a()
+
+let url = `http://3.86.143.97:2349/orders`;
+
+async function a(){
+
+  try {
+    let responce = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+    });
+
+    getdata = await responce.json();
+
+    document.querySelector(".a>div:nth-child(4)>input").value = getdata.price;
+
+  } catch (err) {
+    console.log(err.message);
+  }
+}
 
 
-  document.querySelector(".a>div:nth-child(4)>input").value = 235;
+
+document.querySelector(".a>div:nth-child(4)>input").removeAttribute("disabled");
 
 </script>
